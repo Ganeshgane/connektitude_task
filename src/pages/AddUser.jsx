@@ -36,12 +36,6 @@ const AddUser = ({ id, username, email, role }) => {
     setOpen(false);
   };
 
-  console.log(
-    "userId",
-    { id, username, email, role },
-    id === String(id),
-    typeof id
-  );
   return (
     <>
       <Formik
