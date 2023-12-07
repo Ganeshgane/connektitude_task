@@ -22,6 +22,8 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Title from "../Components/Title";
 import { addUser, editUser } from "../redux/UsersSlice";
+import CustomSnackbar from "../Components/Snackbar";
+import { close, success } from "../redux/SnackbarSlice";
 
 const AddUser = ({ id, username, email, role }) => {
   const [open, setOpen] = React.useState(false);
@@ -65,10 +67,16 @@ const AddUser = ({ id, username, email, role }) => {
                 role: values.role,
               })
             );
+            dispatch(success("User has edited successfully"));
           } else {
             dispatch(addUser(values));
+            dispatch(success("User has been created successfully"));
           }
-          navigate(-1);
+
+          setTimeout(() => {
+            navigate(-1);
+            dispatch(close());
+          }, 1000);
         }}
       >
         {({
@@ -207,6 +215,7 @@ const AddUser = ({ id, username, email, role }) => {
           </form>
         )}
       </Formik>
+      <CustomSnackbar />
     </>
   );
 };

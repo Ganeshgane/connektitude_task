@@ -45,7 +45,7 @@ export const usersSlice = createSlice({
       });
     },
     editUser: (state, action) => {
-      const { id, username, email, role } = action.payload;
+      const { id } = action.payload;
       const user = state.users.findIndex((el) => el.id === String(id));
 
       if (user !== -1) {
