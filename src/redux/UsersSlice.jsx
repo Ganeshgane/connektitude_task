@@ -48,7 +48,7 @@ export const usersSlice = createSlice({
       const { id, username, email, role } = action.payload;
       const user = state.users.findIndex((el) => el.id === String(id));
 
-      if (user) {
+      if (user !== -1) {
         state.users[user] = action.payload;
       }
     },

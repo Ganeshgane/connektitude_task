@@ -31,7 +31,6 @@ const Users = ({ setUserId }) => {
   const user = useSelector((state) => state.users.user);
   const dispatch = useDispatch();
 
-  console.log(users, user, "users");
   return (
     <>
       <Stack
@@ -87,7 +86,7 @@ const Users = ({ setUserId }) => {
           </TableHead>
           <TableBody>
             {users.map((row, index) => (
-              <TableRow hover key={index}>
+              <TableRow hover key={row.id}>
                 <TableCell align="center">{row.id}</TableCell>
                 <TableCell align="center">{row.username}</TableCell>
                 <TableCell align="center">{row.email}</TableCell>
@@ -97,21 +96,11 @@ const Users = ({ setUserId }) => {
                     <IconButton
                       color="primary"
                       onClick={() => {
+                        navigate("/add-user");
                         setUserId(row);
                       }}
                     >
-                      <Link
-                        to={{
-                          pathname: "/add-user",
-                          state: {
-                            data: {
-                              id: "1",
-                            },
-                          },
-                        }}
-                      >
-                        <Edit />
-                      </Link>
+                      <Edit />
                     </IconButton>
                   </Tooltip>
                   <Tooltip title="Delete">

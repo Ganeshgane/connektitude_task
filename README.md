@@ -14,9 +14,11 @@ You may also see any lint errors in the console.
 
 I have used Material Ui for the styling purposes
 
-used react-router-dom for the routing between differnt pages
-
 used redux-toolkit for the global state management
+
+### `Routes`
+
+used react-router-dom for the routing between differnt pages
 
 The list of all users are "/" route
 
